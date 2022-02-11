@@ -1,0 +1,101 @@
+.sales-by-store-container {
+  height: 445px;
+  padding-left: 15px;
+  padding-top: 40px;
+}
+
+.sales-by-store-data {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rebeccapurple;
+}
+
+.sales-by-store-chart {
+  width: 150px;
+  height: 150px;
+  border: 2px solid green;
+}
+
+.sales-by-store-container h1 {
+  font-size: 36px;
+}
+
+.sales-by-store-container h4 {
+  color: var(--grey-light-color);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+@media (min-width: 576px) {
+  .sales-by-store-container {
+    height: 370px;
+    padding-left: 40px;
+    padding-top: 40px;
+  }
+
+  .sales-by-store-container h1 {
+    font-size: 36px;
+  }
+
+  .sales-by-store-container h4 {
+    color: var(--grey-light-color);
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sales-by-store-container {
+    height: 370px;
+    padding-left: 40px;
+    padding-top: 40px;
+  }
+
+  .sales-by-store-container h1 {
+    font-size: 36px;
+  }
+
+  .sales-by-store-container h4 {
+    color: var(--grey-light-color);
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  .sales-by-store-container {
+    height: 375px;
+    padding-left: 40px;
+    padding-top: 160px;
+  }
+
+  .sales-by-store-container h1 {
+    font-size: 36px;
+  }
+
+  .sales-by-store-container h4 {
+    color: var(--grey-light-color);
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sales-by-store-container {
+    height: 375px;
+    padding-left: 40px;
+    padding-top: 160px;
+  }
+
+  .sales-by-store-container h1 {
+    font-size: 36px;
+  }
+
+  .sales-by-store-container h4 {
+    color: var(--grey-light-color);
+    font-weight: 400;
+    font-size: 18px;
+  }
+}
