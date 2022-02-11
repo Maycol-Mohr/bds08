@@ -5,27 +5,33 @@
 }
 
 .sales-by-store-data {
-  height: 170px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 2px solid rebeccapurple;
-}
-
-.sales-by-store-chart {
-  width: 150px;
-  height: 150px;
-  border: 2px solid green;
+  height: 70px;
 }
 
 .sales-by-store-container h1 {
   font-size: 36px;
 }
 
-.sales-by-store-container h4 {
+.sales-by-store-container span {
   color: var(--grey-light-color);
   font-weight: 400;
   font-size: 18px;
+}
+
+.pie-chart-card {
+  width: 90%;
+  padding-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.apexcharts-legend.apexcharts-align-center {
+  flex-direction: column;
+  align-items: stretch;
+  font-size: 16px;
+  width: 90%;
+  align-content: center;
 }
 
 @media (min-width: 576px) {
@@ -38,12 +44,6 @@
   .sales-by-store-container h1 {
     font-size: 36px;
   }
-
-  .sales-by-store-container h4 {
-    color: var(--grey-light-color);
-    font-weight: 400;
-    font-size: 18px;
-  }
 }
 
 @media (min-width: 768px) {
@@ -55,12 +55,6 @@
 
   .sales-by-store-container h1 {
     font-size: 36px;
-  }
-
-  .sales-by-store-container h4 {
-    color: var(--grey-light-color);
-    font-weight: 400;
-    font-size: 18px;
   }
 }
 
@@ -75,10 +69,18 @@
     font-size: 36px;
   }
 
-  .sales-by-store-container h4 {
-    color: var(--grey-light-color);
-    font-weight: 400;
-    font-size: 18px;
+  .sales-by-store-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .pie-chart-card {
+    width: 90%;
+    padding-top: 0;
+    padding-bottom: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -91,11 +93,5 @@
 
   .sales-by-store-container h1 {
     font-size: 36px;
-  }
-
-  .sales-by-store-container h4 {
-    color: var(--grey-light-color);
-    font-weight: 400;
-    font-size: 18px;
   }
 }

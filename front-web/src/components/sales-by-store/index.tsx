@@ -1,17 +1,15 @@
+import PieChartCard from '../pie-chart-card';
 import './styles.css';
-import ReactApexChart from 'react-apexcharts';
 
 function SalesByStore() {
   return (
     <div className="sales-by-store-container base-card">
       <div className="sales-by-store-data">
-        <div className="sale-by-store-container-menor">
-          <h1>R$ 746.484,00</h1>
-          <span>Total de vendas</span>
-        </div>
-        <div className="sales-by-store-chart">
-          <h1>teste</h1>
-        </div>
+        <h1>R$ 746.484,00</h1>
+        <span>Total de vendas</span>
+      </div>
+      <div className="pie-chart-card">
+        <PieChartCard name="" labels={['Feminino', 'Masculino', 'Outro']} series={[40, 30, 30]} />
       </div>
     </div>
   );
