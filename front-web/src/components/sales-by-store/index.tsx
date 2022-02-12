@@ -2,11 +2,15 @@ import { useEffect, useState } from 'react';
 import { makeRequest } from '../../utils/request';
 import PieChartCard from '../pie-chart-card';
 import './styles.css';
-import { ChartSeriesData, SalesByGender } from '../../types';
+import { ChartSeriesData, FilterStore, SalesByGender } from '../../types';
 import { buildChartSeries, sumSalesByGender } from './helpers';
 import { formatPrice } from '../../utils/formatters';
 
-function SalesByStore() {
+type Props = {
+  filterStore?: FilterStore;
+};
+
+function SalesByStore( { filterStore }: Props) {
   const [chartSeries, setChartSeries] = useState<ChartSeriesData[]>([]);
   const [totalSum, setTotalSum] = useState(0);
 
