@@ -1,10 +1,6 @@
 export type Store = 'Uberaba' | 'Uberlandia' | 'Araguari' | 'Ituiutaba';
-export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
 
-export type FilterData = {
-  dates?: Date[];
-  gender?: Gender;
-};
+export type Gender = 'MALE' | 'FEMALE' | 'OTHER';
 
 export type SalesByGender = {
   gender: string;
@@ -17,7 +13,7 @@ export type ChartSeriesData = {
 };
 
 export type FilterStore = {
-  stores?: Store[] | undefined;
+  stores?: Store[];
 };
 
 export type SalesByGender2 = {

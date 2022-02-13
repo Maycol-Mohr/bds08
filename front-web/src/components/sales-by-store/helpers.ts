@@ -75,8 +75,8 @@ export const buildChartSeries = (salesByGender: SalesByGender[] = []) => {
   }));
 };
 
-export const sumSalesByGender = (salesByGender: SalesByGender[] = []) => {
-  return salesByGender.reduce((previousValue, currentValue) => {
+export const sumSalesByGender = (SalesByGender: SalesByGender[] = []) => {
+  return SalesByGender.reduce((previousValue, currentValue) => {
     return previousValue + currentValue.sum;
   }, 0);
 };

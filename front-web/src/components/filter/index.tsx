@@ -13,7 +13,7 @@ function Filter({ onFilterChange }: Props) {
     const selectedStore = event.target.value as Store;
 
     setStore(selectedStore);
-    //onFilterChange({ stores: selectedStore });
+    onFilterChange({ stores: [selectedStore] });
   };
 
   return (
