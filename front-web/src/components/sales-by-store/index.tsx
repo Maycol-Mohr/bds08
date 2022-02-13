@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { makeRequest } from '../../utils/request';
 import PieChartCard from '../pie-chart-card';
 import './styles.css';
@@ -10,7 +10,7 @@ type Props = {
   filterStore?: FilterStore;
 };
 
-function SalesByStore( { filterStore }: Props) {
+function SalesByStore({ filterStore }: Props) {
   const [chartSeries, setChartSeries] = useState<ChartSeriesData[]>([]);
   const [totalSum, setTotalSum] = useState(0);
 
