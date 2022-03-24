@@ -2,19 +2,13 @@ import { useEffect, useState } from 'react';
 import { makeRequest } from '../../utils/request';
 import PieChartCard from '../pie-chart-card';
 import './styles.css';
-import {
-  ChartSeriesData,
-  FilterStore,
-  PieChartConfig,
-  SalesByGender,
-  SalesByGender2
-} from '../../types';
+import { ChartSeriesData, PieChartConfig, SalesByGender, SalesByGender2 } from '../../types';
 import { buildChartSeries, sumSalesByGender } from './helpers';
 import { formatPrice } from '../../utils/formatters';
 import { buildSalesByGenderChart } from '../../helpers';
 
 type Props = {
-  filterStore?: FilterStore;
+  filterStore?: number;
 };
 
 function SalesByStore({ filterStore }: Props) {
@@ -23,20 +17,22 @@ function SalesByStore({ filterStore }: Props) {
   const [salesByGender2, setSalesByGender2] = useState<PieChartConfig>();
 
   useEffect(() => {
-    makeRequest.get<SalesByGender[]>('/sales/by-gender?storeId=0').then((response) => {
+    makeRequest.get<SalesByGender[]>(`/sales/by-gender?storeId=${filterStore}`).then((response) => {
       const newChartSeries = buildChartSeries(response.data);
       setChartSeries(newChartSeries);
       const newTotalSum = sumSalesByGender(response.data);
       setTotalSum(newTotalSum);
     });
-  }, []);
+  }, [filterStore]);
 
   useEffect(() => {
-    makeRequest.get<SalesByGender2[]>('/sales/by-gender?storeId=0').then((response) => {
-      const newSalesByGender2 = buildSalesByGenderChart(response.data);
-      setSalesByGender2(newSalesByGender2);
-    });
-  }, []);
+    makeRequest
+      .get<SalesByGender2[]>(`/sales/by-gender?storeId=${filterStore}`)
+      .then((response) => {
+        const newSalesByGender2 = buildSalesByGenderChart(response.data);
+        setSalesByGender2(newSalesByGender2);
+      });
+  }, [filterStore]);
 
   return (
     <div className="sales-by-store-container base-card">

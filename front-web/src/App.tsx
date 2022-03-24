@@ -3,13 +3,12 @@ import './App.css';
 import Filter from './components/filter';
 import Header from './components/header';
 import SalesByStore from './components/sales-by-store';
-import { FilterStore } from './types';
 
 function App() {
-  const [filterStore, setFilterStore] = useState<FilterStore>();
+  const [filterStore, setFilterStore] = useState<number>(0);
 
-  const onFilterChange = (filter: FilterStore) => {
-    setFilterStore(filter);
+  const onFilterChange = (data: number) => {
+    setFilterStore(data);
   };
 
   return (

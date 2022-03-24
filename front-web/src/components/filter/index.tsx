@@ -1,29 +1,43 @@
-import React, { useState } from 'react';
-import { FilterStore, Store } from '../../types';
+import React, { useEffect, useState } from 'react';
+import { Store } from '../../types';
+import { makeRequest } from '../../utils/request';
 import './styles.css';
 
+export type FilterData = {
+  story: Store | null;
+};
+
 type Props = {
-  onFilterChange: (filter: FilterStore) => void;
+  onFilterChange: (data: number) => void;
 };
 
 function Filter({ onFilterChange }: Props) {
   const [store, setStore] = useState<Store>();
+  const [storeList, setStoreList] = useState<Store[]>();
 
   const onChangeStore = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedStore = event.target.value as Store;
-
-    setStore(selectedStore);
-    onFilterChange({ stores: [selectedStore] });
+    const selectedStore = event.target.value;
+    onFilterChange(selectedStore as unknown as number);
+    console.log(selectedStore);
   };
+
+  useEffect(() => {
+    makeRequest.get<Store[]>('/stores').then((response) => {
+      setStoreList(response.data);
+    });
+  }, []);
 
   return (
     <div className="filter-container base-card">
-      <select className="filter-input" value={store} onChange={onChangeStore}>
-        <option value="">Selecione uma loja</option>
-        <option value="Uberaba">Uberaba</option>
-        <option value="Uberlandia">Uberlandia</option>
-        <option value="Araguari">Araguari</option>
-        <option value="Ituiutaba">Ituiutaba</option>
+      <select className="filter-input" value={store?.id} onChange={onChangeStore}>
+        <option value="0">Selecione uma loja</option>
+        {storeList?.map((store) => {
+          return (
+            <option key={store.id} value={store.id}>
+              {store.name}
+            </option>
+          );
+        })}
       </select>
     </div>
   );
